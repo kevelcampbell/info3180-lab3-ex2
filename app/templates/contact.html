@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block css %}
+<style type="text/css">
+span{
+    color:red;
+}
+.flash {
+    color:green;
+}
+</style>
+{% endblock %}
+
+{% block main %}
+<h1>Contact Form</h1>
+<hr/>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <em class='flash'>{{ message }}</em>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<p>Fill in this form to contact the site owners.</p>
+<form action ="#" method ='POST'>
+    <p><strong>Name</strong><span>(Required)</span></p>
+    <p>Please enter your full name</p>
+    <input type="text" name="Name"/>
+    <p><strong>E-mail</strong><span>(Required)</span></p>
+    <p>Please enter your e-mail address</p>
+    <input type="text" name="E-mail"/>
+    <p><strong>Subject</strong><span>(Required)</span></p>
+    <p>Please enter the subject:for your message</p>
+    <input type="text" name="Subject"/>
+    <p><strong>Message</strong><span>(Required)</span></p>
+    <p>Please enter the message you would like to send</p>
+    <textarea name="Message"></textarea><br/>
+    <button>Send</button>
+</form> 
+{% endblock %}
